@@ -3,13 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication4", "WebApplication4\WebApplication4.csproj", "{C70C78C8-D01F-495F-BE07-B89BA3087569}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication4", "WebApplication4\WebApplication4.csproj", "{C70C78C8-D01F-495F-BE07-B89BA3087569}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyData", "CompanyData\CompanyData.csproj", "{73CD4AC8-82F7-4823-852B-FF8E9E041C72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyData", "CompanyData\CompanyData.csproj", "{73CD4AC8-82F7-4823-852B-FF8E9E041C72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyRepository", "CompanyRepository\CompanyRepository.csproj", "{3D69DA46-6EFE-4050-A64A-78BA0D15CAE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyRepository", "CompanyRepository\CompanyRepository.csproj", "{3D69DA46-6EFE-4050-A64A-78BA0D15CAE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyServices", "CompanyServices\CompanyServices.csproj", "{EB5959FC-7EE8-44F6-BAAA-E57452B26DC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyServices", "CompanyServices\CompanyServices.csproj", "{EB5959FC-7EE8-44F6-BAAA-E57452B26DC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{600EA0A1-705B-4EDB-BF07-207ACE3E4F90}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

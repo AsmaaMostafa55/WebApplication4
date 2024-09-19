@@ -1,6 +1,4 @@
-﻿using CompanyData.Entities;
-using CompanyRepository.interfaces;
-using CompanyServices.Interfaces;
+﻿using CompanyServices.Interfaces.Department.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication4.Controllers
@@ -27,7 +25,7 @@ namespace WebApplication4.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Department department)
+        public IActionResult Create(DepartmentDto department)
         {
 
 
@@ -72,7 +70,7 @@ namespace WebApplication4.Controllers
             return Details(id,"Update");
         }
         [HttpPost]
-        public IActionResult Update(int? id,Department department) 
+        public IActionResult Update(int? id,DepartmentDto department) 
         {
         if ( department.id !=id.Value)
             

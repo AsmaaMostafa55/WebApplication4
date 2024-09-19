@@ -1,7 +1,9 @@
 ﻿using CompanyData.Entities;
 using CompanyRepository.interfaces;
 using CompanyServices.Interfaces;
-using CompanyServices.Interfaces.DepartmentDto;
+using CompanyServices.Interfaces.Department.Dto;
+
+using CompanyServices.Interfaces.Employee.Dto;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication4.Models;
 
@@ -32,7 +34,7 @@ namespace WebApplication4.Controllers
 
 
 
-            IEnumerable<Employee> employees = new List<Employee>();
+            IEnumerable<EmployeeDto> employees = new List<EmployeeDto>();
             if (string.IsNullOrEmpty(searchImp))
                 employees = _employeeService.GEtAll();
 
@@ -55,7 +57,8 @@ namespace WebApplication4.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(EmployeeDto employee)
         {
             try
             {

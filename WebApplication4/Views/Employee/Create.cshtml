@@ -1,7 +1,7 @@
 ﻿
-@model Employee
+@model EmployeeDto
 @{
-    var departmets=ViewBag.Departments;
+   // var departmets=ViewBag.Departments;
     var departmments = new SelectList(ViewBag.Departments, nameof(Department.id), nameof(Department.name));
 
 }
@@ -26,7 +26,7 @@
 
 
 @* @model IEnumerable<Department> *@
-<form asp-action="Create">
+<form asp-action="Create" enctype="multipart/form-data">
     <div class="form-group">
         <label class="col-form-label" asp-for="name"></label>
         <input type="text" asp-for="name" class="form-control" />
@@ -65,11 +65,11 @@
         </select>
 
     </div>
-    @* <div class="form-group">
-        <label class="col-form-label" asp-for="ImageUrl">Image</label>
-        <input type="file" asp-for="ImageUrl" class="form-control-file" />
+     <div class="form-group">
+        <label class="col-form-label" asp-for="Image">Image</label>
+        <input type="file" asp-for="Image" class="form-control-file" />
        
-    </div> *@
+    </div> 
 
     <input type="submit" value="Create" class="btn btn-primary" />
 <a asp-action="index" class="btn btn-light">Back to list</a>

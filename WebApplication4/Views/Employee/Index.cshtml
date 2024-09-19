@@ -41,6 +41,8 @@
         <thead>
             <tr>
                 <th>@Html.DisplayNameFor(D=>D.name)</th>
+                <th>@Html.DisplayNameFor(D => D.Image)</th>
+
                 <th>@Html.DisplayNameFor(D => D.age)</th>
                 <th>@Html.DisplayNameFor(D => D.address)</th>
               
@@ -60,6 +62,14 @@
             {
                 <tr>
                     <td>@Employee.name</td>
+
+                    <td>
+                        
+                        @Employee.name
+                        
+                    <img src="~/Files/Images/@Employee.ImageUrl" height="40" width="40" alt=""/>
+                    </td>
+
                     <td>@Employee.age</td>
                     <td>@Employee.address</td>
                     <td>@Html.DisplayFor(M=>Employee.salary)</td>

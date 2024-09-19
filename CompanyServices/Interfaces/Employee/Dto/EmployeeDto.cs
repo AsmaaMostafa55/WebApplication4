@@ -1,10 +1,10 @@
 ﻿
-namespace CompanyServices.Interfaces.DepartmentDto
+using CompanyServices.Interfaces.Department.Dto;
+using Microsoft.AspNetCore.Http;
+namespace CompanyServices.Interfaces.Employee.Dto
 {
-    public class Employee
+    public class EmployeeDto
     {
-       //
-       public Department Department { get; set; }
         public int id { get; set; }
         public string name { get; set; }
         public int age { get; set; }
@@ -12,10 +12,12 @@ namespace CompanyServices.Interfaces.DepartmentDto
         public decimal salary { get; set; }
         public string phonenumber { get; set; }
         public DateTime hiringdate { get; set; }
-        public string imageurl { get; set; }
+        public IFormFile Image { get; set; }
 
-        public DateTime CreateAt { get; set; }
-       
+        public string? ImageUrl { get; set; }
+        public DateTime createat { get; set; }
+
+        public DepartmentDto? Department { get; set; }
         public int? DepartmentId { get; set; }
     }
 }

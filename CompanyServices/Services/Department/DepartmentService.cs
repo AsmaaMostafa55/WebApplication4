@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CompanyData.Entities;
-using CompanyServices.Interfaces.DepartmentDto;
+using CompanyServices.Interfaces.Department.Dto;
+using AutoMapper;
 
 namespace CompanyServices.Services
 {
@@ -14,21 +15,27 @@ namespace CompanyServices.Services
     {
       //  private readonly IDepartmentRepositry _departmentRepositry;
         private readonly IUnitOfWork _unitOfWork;
-
-        public DepartmentService(IUnitOfWork unitOfWork )
+        private readonly IMapper _mapper;
+        public DepartmentService(IUnitOfWork unitOfWork ,IMapper mapper )
         {
          //   _departmentRepositry = departmentRepositry;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public void Add(Department department)
+        public void Add(DepartmentDto departmentDto)
         {
-            var mappedDepartment = new Department
-            {
-                code = department.code,
-                name = department.name,
-                //createat = DateTime.Now,
-            };
+            //var mappedDepartment = new DepartmentDto
+            //{
+            //    code = department.code,
+            //    name = department.name,
+            //    //createat = DateTime.Now,
+            //};
+
+            var mappedDepartment=_mapper.Map<Department>(departmentDto);
+
+
+
             _unitOfWork.DepartmentRepositry.Add(mappedDepartment);
             _unitOfWork.Complete();
         }
@@ -51,24 +58,26 @@ namespace CompanyServices.Services
         //    _departmentRepositry.Add(mappedDepartment);
         //}
 
-        public void Delete(Department department)
+        public void Delete(DepartmentDto departmentDto)
         {
-            _unitOfWork.DepartmentRepositry.Delete(department);
+            var mappedDepartment = _mapper.Map<Department>(departmentDto);
+            _unitOfWork.DepartmentRepositry.Delete(mappedDepartment);
             _unitOfWork.Complete();
         }
 
-        public void Delete(DepartmentDto department)
-        {
-            throw new NotImplementedException();
-        }
+        //public void Delete(DepartmentDto department)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public IEnumerable<Department> GetAll()
+        public IEnumerable<DepartmentDto> GetAll()
         {
          var departments= _unitOfWork.DepartmentRepositry.GetAll();
-            return departments;
+            var mappedDepartments=_mapper.Map<IEnumerable<DepartmentDto>>(departments);
+            return mappedDepartments;
         }
 
-        public Department GetById(int? id)
+        public DepartmentDto GetById(int? id)
         {
             if (id is null)
                 return null;
@@ -76,11 +85,11 @@ namespace CompanyServices.Services
             if (department is null)
             
                 return null;
-            
-            return department;
+            var mappedDepartments = _mapper.Map<DepartmentDto>(department);
+            return mappedDepartments;
         }
 
-        public void Update(Department department)
+        public void Update(DepartmentDto department)
         {
             //var dept=GetById(department.id);
             //if(dept.name !=department.name)
@@ -90,8 +99,8 @@ namespace CompanyServices.Services
             //}
             //dept.name = department.name;
             //dept.code = department.code;
-            _unitOfWork.DepartmentRepositry.Update(department);
-            _unitOfWork.Complete();
+            //_unitOfWork.DepartmentRepositry.Update(department);
+            //_unitOfWork.Complete();
           
         }
 

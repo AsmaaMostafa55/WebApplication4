@@ -46,7 +46,10 @@ namespace CompanyRepository.Repositries
         }
 
         public IEnumerable<Employee>  GetEmployeeByName(string name)
-      => _context.Employees.Where(x => x.name.Trim().ToLower().Contains(name.Trim().ToLower())).ToList();
+      => _context.Employees.Where(x => 
+      x.name.Trim().ToLower().Contains(name.Trim().ToLower())||
+      x.phonenumber.Trim().ToLower().Contains(name.Trim().ToLower())
+      ).ToList();
 
         public IEnumerable<Employee> GetEmployeeByddress(string address)
         {

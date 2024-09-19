@@ -2,19 +2,20 @@
 
 using CompanyData.Entities;
 using CompanyServices.Interfaces.DepartmentDto;
+using CompanyServices.Interfaces.Employee.Dto;
 
 namespace CompanyServices.Interfaces
 {
     public interface IEmployeeService
     {
-        Employee GetById(int? id);
+        EmployeeDto GetById(int? id);
 
-        IEnumerable<Employee> GEtAll();
-        void Add(Employee employee);
-        void Update(Employee employee);
-        void Delete(Employee employee);
+        IEnumerable<EmployeeDto> GEtAll();
+        void Add(EmployeeDto employee);
+        void Update(EmployeeDto employee);
+        void Delete(EmployeeDto employee);
 
       
-        IEnumerable<Employee> GetEmployeeByName(string name);
+        IEnumerable<EmployeeDto> GetEmployeeByName(string name);
     }
 }

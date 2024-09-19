@@ -1,21 +1,19 @@
 ﻿using CompanyData.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+
+
+
 
 namespace CompanyData.Contexts
 {
-    public class CompanyDbContexts :DbContext
+    public class CompanyDbContexts : IdentityDbContext<ApplicationUsercs>
     {
-        public CompanyDbContexts(DbContextOptions options):base (options) 
-        { 
-        
-        
+        public CompanyDbContexts(DbContextOptions options):base (options)
+        {
+
+
         }
 
         public CompanyDbContexts()
@@ -37,5 +35,9 @@ namespace CompanyData.Contexts
         //}
         public DbSet<Employee> Employees { get; set; }
 public DbSet <Department> Departments { get; set; }
+    }
+
+    public class IdentityDbContext
+    {
     }
 }
